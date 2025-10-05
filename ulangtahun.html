@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Surat Ulang Tahun Untuk Kamu 🎂</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .envelope {
+      width: 90%;
+      max-width: 400px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      padding: 25px;
+      text-align: center;
+      transition: transform 0.4s ease;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin-bottom: 15px;
+      color: #e91e63;
+    }
+
+    #message {
+      font-size: 16px;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .from {
+      margin-top: 20px;
+      color: #555;
+      font-style: italic;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #e91e63;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .heart {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      transform: rotate(45deg);
+      animation: fall 3s linear forwards;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="envelope" id="envelope">
+    <div id="intro">
+      <h1>📩 Klik untuk Buka Surat 💌</h1>
+      <p>Surat spesial dari seseorang yang sayang kamu...</p>
+      <button onclick="openLetter()">Buka Surat</button>
+    </div>
+    <div id="content" class="hidden">
+      <h1>🎉 Selamat Ulang Tahun, Sayang! 🎉</h1>
+      <p id="message">
+        Hari ini hari spesial, hari dimana dunia menjadi lebih indah karena kamu lahir. 🥰<br><br>
+        Terima kasih karena selalu ada, menjadi cahaya dan pelangi di hari-hariku.<br>
+        Aku berharap semua impianmu tercapai dan kamu selalu bahagia, karena kamu pantas mendapatkannya. 💖
+      </p>
+      <p class="from">Dari aku, yang selalu sayang kamu 😘</p>
+      <button onclick="showLove()">Tampilkan Love ❤️</button>
+    </div>
+  </div>
+
+  <!-- Musik Romantis -->
+  <audio id="music" src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" loop></audio>
+
+  <script>
+    function openLetter() {
+      document.getElementById('intro').classList.add('hidden');
+      document.getElementById('content').classList.remove('hidden');
+      document.getElementById('music').play();
+    }
+
+    function showLove() {
+      for (let i = 0; i < 20; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 2 + 2) + "s";
+        document.body.appendChild(heart);
+        setTimeout(() => {
+          heart.remove();
+        }, 3000);
+      }
+    }
+  </script>
+</body>
+</html>
